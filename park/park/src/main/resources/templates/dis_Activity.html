@@ -1,0 +1,158 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--&lt;!&ndash;&lt;!&ndash;    <title>view activities</title>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</head>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<body>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<span style="font-size: 64px; color: navajowhite; font-family: Algerian, serif; font-style: italic; align: center">&nbsp;&nbsp;</span>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;<table>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <tr th:each="activity : ${activity}" th:class="${activityStat.odd}? 'odd' : 'even'">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <div style="text-align: center;">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <span style="font-size:16px; font-weight:bold; display:block;" th:text="${activity.activityName}"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <img th:src="${activity.activityPhotoUrl}" height="300" width="300">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <span>Activity Type: </span><span th:text="${activity.activityType}"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <span>Description: </span><span th:text="${activity.activityDescription}"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <span>Address: </span><span th:text="${activity.activityAddress}"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <span>Time: </span><span th:text="${activity.activityTime}"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</table>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</body>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</html>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html xmlns:th="http://www.thymeleaf.org">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>View Activities</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>List of Activities</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;<table>&ndash;&gt;-->
+<!--&lt;!&ndash;    <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Activity Name</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Photo</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Type</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Description</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Address</th>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th>Time</th>&ndash;&gt;-->
+<!--&lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;    </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;    <tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;    <tr th:each="activity : ${activitys}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${activity.activityName}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td><img th:src="${activity.activityPhotoUrl}" height="100" width="100"/></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${activity.activityType}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${activity.activityDescription}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${activity.activityAddress}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${activity.activityTime}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;    </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;</table>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://thymeleaf.org"-->
+<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
+<!--      layout:decorate="~{indexxx}">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>view activity</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;<span style="font-size: 64px;  color: navajowhite; font-family:Algerian,serif; font-style: italic; align:center">&nbsp;&nbsp;</span>&ndash;&gt;-->
+
+
+<!--&nbsp;&nbsp;-->
+<!--<li>List of Activities</li>-->
+<!--<div class="container_for_display">-->
+
+<!--    <table >-->
+<!--        <tr>-->
+<!--&lt;!&ndash;            <th> Name &nbsp;&nbsp;&nbsp;&nbsp;</th>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th> Type  &nbsp;</th>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th> Discrption &nbsp;&nbsp;&nbsp;&nbsp;</th>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th>Address&nbsp;&nbsp;</th>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th>Action</th>&ndash;&gt;-->
+<!--        </tr>-->
+<!--        <tr th:each="activity, row : ${activity}" th:class="${row.odd}? 'odd' : 'even'">-->
+<!--        <tr th:each="activity : ${activity}">-->
+<!--        <h1><u> <label  style="text-align: center" th:text="${activity.activityName}"></label></u></h1><br><br>-->
+<!--        <label style="align-content: center"> <img th:src="${activity.activityPhotoUrl}"height="550 px" width="80%"></label><br><br>-->
+
+<!--        <B>Activity type :</B><label style="text-align: center" th:text="${activity.activityType}"></label><br><br>-->
+<!--        <B>Discription :</B> <label  style="text-align: center" th:text="${activity.activityDescription}"></label><br><br>-->
+<!--        <B>Laction :</B> <label  style="text-align: center" th:text="${activity.activityAddress}"></label><br><br>-->
+<!--        <li  style="text-align: center"><a th:href="@{/apps}" >Apply-Now</a></li><br><br>-->
+<!--        </tr>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dash}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>View Activities</title>
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">-->
+    <style>
+        .activity-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .activity-photo {
+            height: 550px;
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .apply-now {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .odd {
+            background-color: #f2f2f2;
+        }
+
+        .even {
+            background-color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="activity-container" th:each="activity, row : ${activity}" th:class="${row.odd}? 'odd' : 'even'">
+    <h1><u><label th:text="${activity.activityName}"></label></u></h1>
+    <img class="activity-photo" th:src="${activity.activityPhotoUrl}" alt="Activity Photo">
+    <p><strong>Activity type:</strong> <span th:text="${activity.activityType}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${activity.activityDescription}"></span></p>
+    <p><strong>Location:</strong> <span th:text="${activity.activityAddress}"></span></p>
+    <a class="apply-now" th:href="@{/apps}">Apply Now</a>
+</div>
+</body>
+</html>

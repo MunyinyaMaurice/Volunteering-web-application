@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-page}">
+<head>
+  <title>Activity</title>
+</head>
+<body>
+<div class="container">
+  <h1>Update Activity</h1>
+
+<!--  <span class="inst">Already have an account? <a th:href="@{/validate-phone}">Log In</a></span>-->
+  <br><br><br>
+  <form th:action="@{/save}" th:object="${activity}" method="post" >
+
+
+    <input type="hidden" th:field="*{actId}" />
+
+    <input type="text" th:field="*{activityName}" name="activityName" placeholder="activity Name" >
+
+    <input type="text" th:field="*{activityType}" name="activityType" placeholder="activity Type" >
+
+    <br><br>
+    <input type="text" th:field="*{activityDescription}" name="activityDescription" placeholder="activity Description" >
+    <input type="text" th:field="*{activityAddress}" name="activityAddress" placeholder="activity Address " >
+
+<!--    <input type="datetime-local" th:field="*{activityTime}" id="activityTime" name="activityTime" placeholder="Activity Time">-->
+
+    <!--    <input type="date" th:field="*{activityTime}" id="activityTime" name="date" placeholder=" activity Time" >-->
+    <input type="text" th:field="*{activityPhotoUrl}" id="activityPhotoUrl" name="activityPhotoUrl" placeholder=" activity PhotoUrl" >
+
+    <button type="submit">UPDATE</button>
+
+  </form>
+</div>
+</body>
+
+
+</html>

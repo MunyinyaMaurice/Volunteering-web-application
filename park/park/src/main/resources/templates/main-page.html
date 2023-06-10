@@ -1,0 +1,396 @@
+<!--<!DOCTYPE html>-->
+<!--<html-->
+<!--        xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">-->
+<!--&lt;!&ndash;xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"&ndash;&gt;-->
+<!--&lt;!&ndash;layout:decorate="~{layout_for_Admin}">&ndash;&gt;-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>VOLUNTEERING-SERVICES</title>-->
+<!--    <style>-->
+<!--    *{-->
+<!--        font-family: "Century Gothic", sans-serif;-->
+<!--        list-style: none;-->
+<!--    }-->
+
+<!--    body {-->
+<!--        background: gray;-->
+
+<!--    }-->
+
+<!--    nav {-->
+<!--        background-color: darkslategray;-->
+<!--        display: flex;-->
+<!--        flex-wrap: wrap;-->
+<!--        align-items: center;-->
+<!--        /*justify-content: space-between;*/-->
+<!--        overflow: auto;-->
+<!--        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);-->
+<!--    }-->
+
+<!--    ul li {-->
+<!--        position: relative;-->
+<!--        margin: 0 20px;-->
+<!--        list-style: none;-->
+<!--        display: inline-block;-->
+<!--        padding: 14px;-->
+<!--        font-size: 17px;-->
+<!--    }-->
+
+<!--    nav a {-->
+<!--        color: darkslategray;-->
+<!--        font-size: 18px;-->
+<!--        text-transform: uppercase;-->
+<!--        border: 1px solid transparent;-->
+<!--        padding: 7px 10px;-->
+<!--        border-radius: 3px;-->
+<!--    }-->
+
+<!--    nav a:hover{-->
+<!--        color:darkred;-->
+<!--        text-decoration: none;-->
+<!--        /*border-bottom: 2px solid #2f1c6a;*/-->
+<!--    }-->
+
+<!--    .description{-->
+<!--        background-color: #f4f5ff;-->
+<!--        font-size: 25px;-->
+<!--        border-radius: 10px;-->
+<!--        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);-->
+<!--        margin: 100px auto;-->
+<!--        max-width: 900px;-->
+<!--        padding: 50px;-->
+<!--        text-align: center;-->
+<!--        color:#2f1c6a;-->
+<!--    }-->
+
+<!--    .aboutUs{-->
+<!--        background-color: #f4f5ff;-->
+<!--        font-size: 25px;-->
+<!--        border-radius: 10px;-->
+<!--        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);-->
+<!--        margin: 100px auto;-->
+<!--        max-width: 600px;-->
+<!--        padding: 50px;-->
+<!--        text-align: center;-->
+<!--        color: #2f1c6a;-->
+<!--    }-->
+
+<!--    a{-->
+<!--        margin-right: 3px;-->
+<!--        text-decoration: none;-->
+<!--        color: darkslategray;-->
+<!--    }-->
+
+<!--    a:hover{-->
+<!--        margin-right: 3px;-->
+<!--        /*text-decoration: underline;*/-->
+<!--        color: darkred;-->
+<!--    }-->
+
+<!--    button{-->
+<!--        /*padding: 4px;*/-->
+<!--        margin: 5px;-->
+<!--        border-radius: 0px;-->
+<!--        border: none;-->
+<!--        background-color: darkslategray;-->
+<!--        color: navajowhite;-->
+<!--        font-size: 20px;-->
+<!--        cursor: pointer;-->
+<!--        transition: background-color 0.3s;-->
+<!--    }-->
+
+<!--    button:hover {-->
+<!--        background-color: darkslategray;-->
+<!--        text-color:gray;-->
+<!--    }-->
+<!--    /*-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;*/-->
+<!--    * {box-sizing: border-box}-->
+<!--    body {font-family: Verdana, sans-serif; margin:0}-->
+<!--    .mySlides {display: none}-->
+<!--    img {vertical-align: middle;}-->
+
+<!--    /* Slideshow container */-->
+<!--    .slideshow-container {-->
+<!--        max-width: 1000px;-->
+<!--        position: relative;-->
+<!--        margin: auto;-->
+<!--    }-->
+
+<!--    /* Next & previous buttons */-->
+<!--    .prev, .next {-->
+<!--        cursor: pointer;-->
+<!--        position: absolute;-->
+<!--        top: 50%;-->
+<!--        width: auto;-->
+<!--        padding: 16px;-->
+<!--        margin-top: -22px;-->
+<!--        color: white;-->
+<!--        font-weight: bold;-->
+<!--        font-size: 18px;-->
+<!--        transition: 0.6s ease;-->
+<!--        border-radius: 0 3px 3px 0;-->
+<!--        user-select: none;-->
+<!--    }-->
+
+<!--    /* Position the "next button" to the right */-->
+<!--    .next {-->
+<!--        right: 0;-->
+<!--        border-radius: 3px 0 0 3px;-->
+<!--    }-->
+
+<!--    /* On hover, add a black background color with a little bit see-through */-->
+<!--    .prev:hover, .next:hover {-->
+<!--        background-color: rgba(0,0,0,0.8);-->
+<!--    }-->
+
+<!--    /* Caption text */-->
+<!--    .text {-->
+<!--        color: #f2f2f2;-->
+<!--        font-size: 15px;-->
+<!--        padding: 8px 12px;-->
+<!--        position: absolute;-->
+<!--        bottom: 8px;-->
+<!--        width: 100%;-->
+<!--        text-align: center;-->
+<!--    }-->
+
+<!--    /* Number text (1/3 etc) */-->
+<!--    .numbertext {-->
+<!--        color: #f2f2f2;-->
+<!--        font-size: 12px;-->
+<!--        padding: 8px 12px;-->
+<!--        position: absolute;-->
+<!--        top: 0;-->
+<!--    }-->
+
+<!--    /* The dots/bullets/indicators */-->
+<!--    .dot {-->
+<!--        cursor: pointer;-->
+<!--        height: 15px;-->
+<!--        width: 15px;-->
+<!--        margin: 0 2px;-->
+<!--        background-color: #bbb;-->
+<!--        border-radius: 50%;-->
+<!--        display: inline-block;-->
+<!--        transition: background-color 0.6s ease;-->
+<!--    }-->
+
+<!--    .active, .dot:hover {-->
+<!--        background-color: #717171;-->
+<!--    }-->
+
+<!--    /* Fading animation */-->
+<!--    .fade {-->
+<!--        animation-name: fade;-->
+<!--        animation-duration: 1.5s;-->
+<!--    }-->
+
+<!--    @keyframes fade {-->
+<!--        from {opacity: .6}-->
+<!--        to {opacity: 1}-->
+<!--    }-->
+
+<!--    /* On smaller screens, decrease text size */-->
+<!--    @media only screen and (max-width: 300px) {-->
+<!--        .prev, .next,.text {font-size: 11px}-->
+<!--    }-->
+<!--    .container {-->
+<!--        color: #2f1c6a;-->
+<!--        background-color: #f4f5ff;-->
+<!--        border-radius: 10px;-->
+<!--        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);-->
+<!--        margin: 60px auto;-->
+<!--        max-width: 550px;-->
+<!--        padding: 20px;-->
+<!--        text-align: center;-->
+<!--    }-->
+<!--    .container_for_display {-->
+<!--        color: #2f1c6a;-->
+<!--        background-color: #f4f5ff;-->
+<!--        border-radius: 10px;-->
+<!--        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);-->
+<!--        /*margin: 60px auto;*/-->
+<!--        max-width: 1300px;-->
+<!--        /*padding: 20px;*/-->
+<!--        text-align: center;-->
+<!--    }-->
+<!--    .container_for_Names {-->
+<!--        color: #2f1c6a;-->
+<!--        background-color: #f4f5ff;-->
+<!--        border-radius: 10px;-->
+<!--        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);-->
+<!--        margin: 60px auto;-->
+<!--        max-width: 500px;-->
+<!--        padding: 10px;-->
+<!--        text-align: center;-->
+<!--    }-->
+<!--    </style>-->
+<!--    <nav>-->
+<!--        <ul>-->
+<!--&lt;!&ndash;            <li><a th:href="@{/applys}" ><button>Apply-Now</button></a></li>&ndash;&gt;-->
+<!--            <li><a th:href="@{/applicationView}" ><button>View-Application</button></a></li>-->
+<!--            <li><a th:href="@{/view}" ><button>View-Activity</button></a></li>-->
+<!--&lt;!&ndash;            <li><a th:href="@{/add}" ><button>Add-Activity</button></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;            <li><a th:href="@{/uploads}" ><button>Upload </button></a></li>&ndash;&gt;-->
+<!--            <p> <span sec:authentication="name"></span></p>-->
+<!--            <li><a th:href="@{/logout}"><button>Log out</button></a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--&lt;!&ndash;    <br><br>&ndash;&gt;-->
+<!--</head>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Volunteer Web Application</title>
+    <style>
+        /* Header styles */
+        .header {
+            background-color: darkslategray;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            overflow: hidden;
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar li a:hover:not(.active) {
+            background-color: darkslategray;
+        }
+
+        .active {
+            background-color: darkslategray;
+        }
+
+
+        .left-nav {
+            float: left;
+            color: white;
+        }
+        .middle-nav {
+            float: center;
+
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        select {
+            margin: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+            width: 300px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input {
+            margin: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+            width: 300px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+            background-color: darkslategray;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+
+        label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: darkslategray;
+            margin-bottom: 30px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .container {
+            color: #2f1c6a;
+            background-color: #f4f5ff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            margin: 60px auto;
+            max-width: 550px;
+            padding: 20px;
+            text-align: center;
+        }
+        .container_for_display {
+            color: #2f1c6a;
+            background-color: #f4f5ff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            /*margin: 60px auto;*/
+            max-width: 1300px;
+            /*padding: 20px;*/
+            text-align: center;
+        }
+    </style>
+</head>
+<header class="header">
+
+    <nav>
+        <ul class="navbar">
+            <li class="middle-nav"><a href="#contact">Volunteer Web Application</a></li>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a th:href="@{/applicationView}" >View-Application</a></li>
+            <li><a th:href="@{/view}">View-Activity</a></li>
+            <p sec:authorize="hasAuthority('ADMIN')">
+            <li class="left-nav" sec:authentication="name"></li>
+            <li><a th:href="@{/logout}">Log out</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+</html>

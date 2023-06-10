@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{indexxx}">
+</head>
+<body>
+<form th:action="@{/register}" th:object="${user}" method="post">
+    <h1>Registration</h1>
+    <label for="firstName">Your First Name</label>
+    <input type="text" id="firstName" name="firstName" th:field="*{firstName}"required />
+    <label for="lastName">Your Last Name</label>
+    <input type="text" id="lastName" name="lastName" th:field="*{lastName}" required />
+    <label for="mobile">Your Mobile Number</label>
+    <input type="text" id="mobile" name="mobile" th:field="*{mobile}" required />
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" th:field="*{email}"required />
+    <label for="password">Your Password</label>
+    <input type="password" id="password" name="password" th:field="*{password}" required />
+    <select th:field="*{role}" hidden>
+        <option value="USER">USER</option>
+    </select>
+
+    <button type="submit">Sign in</button><br />
+    <a th:href="@{/login}" style="color: darkslategray" >Alread have an accaount? &nbsp;Log in
+        </a>
+    <span th:utext="${successMessage}"></span>
+    <div th:if="${bindingResult!=null && bindingResult.getAllErrors()!=null}">
+        <ul th:each="data : ${bindingResult.getAllErrors()}">
+            <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
+        </ul>
+    </div>
+</form>
+<footer style="background-color: darkslategray;text-align: center;text-align: center;width: 100%;height:60px">
+    <p>Copyright © Volunteer Web Application.</p>
+</footer>
+</body>
+</html>

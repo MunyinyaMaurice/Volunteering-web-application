@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+<!--<html xmlns:th="http://thymeleaf.org"-->
+<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
+<!--      layout:decorate="~{layout_for_Admin}">-->
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+<h2>Welcome to Admin Dashboard</h2>
+<p>Logged as: <span sec:authentication="name"></span></p>
+<p>Has role: <span sec:authentication="authorities"></span></p>
+<p><a th:href="@{/}">Home</a></p>
+<p><a th:href="@{/logout}">Log out</a></p>
+</body>
+</html>

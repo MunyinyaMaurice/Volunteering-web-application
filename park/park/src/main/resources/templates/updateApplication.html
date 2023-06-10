@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-page}">
+<head>
+  <title>update application</title>
+
+  <!DOCTYPE html>
+  <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{main-page}">
+  <head>
+    <title>Update Application</title>
+  </head>
+  <body>
+  <form th:action="@{/appl}" th:object="${applicationss}" method="post" enctype="multipart/form-data">
+    <h1>Application Form</h1>
+    <input type="text" th:hidden="true" th:field="*{id}" />
+
+    <select id="activity" name="activity.id" th:object="${applicationss.activity}">
+      <option value="">--Select Activity--</option>
+      <th:block th:each="activity : ${activities}">
+        <option th:value="${applicationss.activity.getActId()}" th:text="${activity.activityName}"></option>
+<!--        <option th:value="${activity.actId}" th:text="${activity.activityName}"></option>-->
+      </th:block>
+    </select>
+
+    <label for="volunteerNames">Volunteer Names</label>
+    <input type="text" th:field="*{volunteerNames}" id="volunteerNames" style="width: 400px; height: 20px;" name="volunteerNames" />
+
+    <label for="volunteerAge">Volunteer Age</label>
+    <input type="text" th:field="*{volunteerAge}" id="volunteerAge" style="width: 400px; height: 20px;" name="volunteerAge" />
+
+    <label for="userEmail">Volunteer Email</label>
+    <input type="email" th:field="*{userEmail}" id="userEmail" style="width: 400px; height: 20px;" name="volunteerEmail" />
+
+    <label for="volunteerPhoneNumber">Volunteer Phone Number</label>
+    <input type="text" th:field="*{volunteerPhoneNumber}" id="volunteerPhoneNumber" style="width: 400px; height: 20px;" name="volunteerPhoneNumber" />
+
+    <label for="volunteerAddress">Volunteer Address</label>
+    <input type="text" th:field="*{volunteerAddress}" id="volunteerAddress" style="width: 400px;height: 20px;" name="volunteerAddress" />
+    <select id="volunteerStatus" name="volunteerStatus" th:field="*{volunteerStatus}">
+      <option value="Accepted">Accepted</option>
+      <option value="Denied">Denied</option>
+    </select>
+
+    <label for="file">Select a file:</label>
+    <input type="file" id="file" name="file" height="35px" />
+
+    <button type="submit">Update</button>
+
+</form>
+</div>
+</body>
+
+<footer style="background-color: darkslategray;text-align: center;text-align: center;width: 100%; height:60px">
+  <p>Copyright © Volunteer Web Application.</p>
+</footer>
+</body>
+</html>

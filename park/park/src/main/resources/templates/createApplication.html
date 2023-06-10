@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-page}">
+<head>
+
+
+</head>
+<body>
+
+<!--  <span style="font-size: 64px;  color: #2f1c6a; font-family:Algerian,serif; font-style: italic">&nbsp;&nbsp;VOLUNTEERING</span>-->
+
+<div class="container">
+  <h1>Application Form</h1>
+  <form th:action="@{/apply}" th:object="${application}" method="post" >
+
+
+    <input type="text" hidden="id" th:field="*{id}" /> </br>
+    <input type="text" th:field="*{volunteerNames}"id="volunteerNames" value="" style="width: 300px;
+    height: 25px;" name="volunteerNames" placeholder="volunteer Names " >
+
+    <br><br>
+    <input type="text" th:field="*{volunteerAge}" id="volunteerAge" value="" style="width: 300px;
+    height: 25px;"name="volunteerAge" placeholder="volunteer Age" >
+
+    <br><br>
+    <input type="email" th:field="*{userEmail}"id="userEmail" value="" style="width: 300px;
+    height: 25px;" name="userEmail" placeholder="volunteer Email" >
+    <br><br>
+    <input type="text" th:field="*{volunteerPhoneNumber}"id="volunteerPhoneNumber" value="" style="width: 300px;
+    height: 25px;" name="volunteerPhoneNumber" placeholder="volunteer Phone Number Address " >
+    <br><br>
+
+    <input type="text" th:field="*{volunteerAddress}" id="volunteerAddress" value="" style="width: 300px;
+    height: 25px;" name="volunteerAddress" placeholder="  volunteer Address" >
+    <br><br>
+        <label for="activity">Activity:</label>
+        <select id="activity" name="activityId"th:object="${activities}">
+          <th:block th:each="activity : ${activities}">
+          <option value="">-- Select Activity --</option>
+          <option th:each="activity.Activity_Application_fk"  th:text="${activity.activityName}"></option>
+          </th:block>
+        </select>
+
+      <!-- other form fields for VolunteeringApplication -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <button type="submit">APPLY</button>
+
+  </form>
+</div>
+</body>
+
+<footer style="background-color: darkslategray;text-align: center;text-align: center;width: 100%; height:60px">
+  <p>Copyright © Volunteer Web Application.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-page}">
+<head>
+  <meta charset="UTF-8">
+  <title>view application list</title>
+ </head>
+<body>
+<!--<span style="font-size: 64px;  color: #2f1c6a; font-family:Algerian,serif; font-style: italic; align:center;">&nbsp;&nbsp;</span>-->
+  <a th:href="@{/apps}"><button style="border-radius: 5px;">Add Application</button></a>
+<li>List of Applications</li>
+<div class="container_for_display">
+<table >
+  <tr>
+    <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=volunteerNames&sortDir=' + ${reverseSortDir}}"> </a> Names &nbsp;&nbsp;&nbsp&nbsp;</th>
+    <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=volunteerAge&sortDir=' + ${reverseSortDir}}">&nbsp;</a> Age  &nbsp;&nbsp;&nbsp&nbsp;</th>
+    <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=volunteerEmail&sortDir=' + ${reverseSortDir}}">&nbsp;</a> Email  &nbsp;&nbsp;&nbsp&nbsp;</th>
+    <th> <a th:href="@{'/page/' + ${currentPage} + '?sortField=volunteerPhoneNumber&sortDir=' + ${reverseSortDir}}"></a> Phone Number&nbsp;&nbsp;</th>
+    <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=volunteerAddress&sortDir=' + ${reverseSortDir}}"></a> Address &nbsp; </th>
+    <th>Activity Name</th>
+    <th> <a th:href="@{'/page/' + ${currentPage} + '?sortField=volunteerStatus&sortDir=' + ${reverseSortDir}}"></a> status&nbsp;&nbsp;</th>
+
+    <th>File Name</th>
+    <th>Download</th>
+    <th>Action</th>
+    <th>Respond</th>
+  </tr>
+  <tr th:each="applicatio, row : ${applications}" th:class="${row.odd}? 'odd' : 'even'">
+    <tr th:each="applicatio : ${applications}">
+    <td th:text="${applicatio.volunteerNames}"></td>
+    <td th:text="${applicatio.volunteerAge}"></td>
+    <td th:text="${applicatio.userEmail}"></td>
+    <td th:text="${applicatio.volunteerPhoneNumber}"></td>
+    <td th:text="${applicatio.volunteerAddress}"></td>
+  <td th:text="${applicatio.activity.activityName}"></td>
+    <td th:text="${applicatio.volunteerStatus}"></td>
+
+    <td th:text="${applicatio.fileName}"></td>
+
+    <td>
+      <a th:href="@{/applications/{id}/download(id=${applicatio.id})}" download><button style="border-radius: 5px;">Download</button>
+<!--      <a th:href="@{/applications/{id}/download(id=${applicatio.id})}" download>-->
+      </a>
+    </td>
+  <td>
+    <a th:href="@{/showUpdateApplication/{id}(id=${applicatio.id})}" style="color: #41bdff">Update</a>
+    <a th:href="@{/deleteApplication/{id}(id=${applicatio.id})}" style="color:red ">Delete</a>
+  </td>
+  <td>
+
+  </td>
+</tr>
+</table>
+</div>
+<div th:if="${totalPages > 1}">
+  <div class="row col-sm-10">
+    <div class="col-sm-2">
+      Total Rows: [[${totalItems}]]
+    </div>
+    <div class="col-sm-1">
+            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+      <a th:if="${currentPageVolunteer != i}" th:href="@{'/pageVolunteer/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+      <span th:unless="${currentPageVolunteer != i}">[[${i}]]</span> &nbsp;
+            </span>
+    </div>
+    <div class="col-sm-1">
+      <a th:if="${currentPage < totalPages}" th:href="@{'/pageVolunteer/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+      <span th:unless="${currentPage < totalPages}">Next</span>
+    </div>
+
+    <div class="col-sm-1">
+      <a th:if="${currentPage < totalPages}" th:href="@{'/pageVolunteer/' + ${totalPages}+ '?sortField' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+      <span th:unless="${currentPage < totalPages}">Last</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

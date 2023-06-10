@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-page}">
+<head>
+  <meta charset="UTF-8">
+  <title>view activity</title>
+</head>
+<body>
+<!--<span style="font-size: 64px;  color: navajowhite; font-family:Algerian,serif; font-style: italic; align:center">&nbsp;&nbsp;</span>-->
+
+  <a th:href="@{/add}"><button style="border-radius: 5px;">Add Activity</button></a>
+<button style="border-radius: 5px;"> <a th:href="@{'/page/' + ${currentPage} + '?sortField=activityName&sortDir=' + ${reverseSortDir}}"> Sort &nbsp;&nbsp;&nbsp;&nbsp;</a></button>
+
+&nbsp;&nbsp;
+<li>List of Activities</li>
+<div class="container_for_display">
+
+<table >
+  <tr>
+    <th> Name &nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th> Type  &nbsp;</th>
+    <th> Discrption &nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th>Address&nbsp;&nbsp;</th>
+    <th>Action</th>
+  </tr>
+  <tr th:each="activity, row : ${activity}" th:class="${row.odd}? 'odd' : 'even'">
+  <tr th:each="activity : ${activity}">
+    <td th:text="${activity.activityName}"></td>
+    <td th:text="${activity.activityType}"></td>
+    <td th:text="${activity.activityDescription}"></td>
+    <td th:text="${activity.activityAddress}"></td>
+<!--    <td th:text="${activity.activityTime}"></td>-->
+    <td> <img th:src="${activity.activityPhotoUrl}"height="70" width="100"></td>
+
+    <td>
+      <a th:href="@{/showUpdateActivity/{actId}(actId=${activity.actId})}" style="color: #41bdff">Update</a>
+      <a th:href="@{/deleteActivity/{actId}(actId=${activity.actId})}" style="color:red ">Delete</a>
+    </td>
+
+</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-page}">
+<head>
+  <title>Create Activity</title>
+
+</head>
+<body>
+<div class="container">
+  <center><h1>Create Activity</h1></center>
+  <form th:action="@{/save}" th:object="${activity}" method="post" >
+    <input type="text" hidden="actId" th:field="*{actId}" />
+    <input type="text" th:field="*{activityName}" id="activityName" value="" style="width: 300px;
+    height: 25px;"name="activityName" placeholder="activity Name" >
+
+    <br>
+    <input type="text" th:field="*{activityType}"id="activityType" value="" style="width: 300px;
+    height: 25px;" name="activityType" placeholder="activity Type" >
+
+    <br>
+    <input type="text" th:field="*{activityDescription}"id="activityDescription" value="" style="width: 300px;
+    height: 25px;" name="activityDescription" placeholder="activity Description" >
+    <br>
+    <input type="text" th:field="*{activityAddress}" id="activityAddress" value="" style="width: 300px;
+    height: 25px;" name="activityAddress" placeholder="activity Address " >
+    <br>
+<!--    <input type="datetime-local" th:field="*{activityTime}" id="activityTime" name="activityTime" placeholder="Activity Time">-->
+<!--<br>-->
+    <input type="text" th:field="*{activityPhotoUrl}" id="activityPhotoUrl" value="" style="width: 300px;
+    height: 25px;" name="activityPhotoUrl" placeholder="activity Photo " >
+    <br>
+
+<!--    <input type="date" th:field="*{activityTime}" id="activityTime" style="width: 300px;-->
+<!--    height: 25px;"name="date" placeholder=" activity Time" >-->
+    <br><br>
+
+    <button type="submit">Register</button>
+
+  </form>
+</div>
+</body>
+<footer style="background-color: darkslategray;text-align: center;text-align: center;width: 100%; height:60px">
+  <p>Copyright © Volunteer Web Application.</p>
+</footer>
+</body>
+</html>
